@@ -3,11 +3,15 @@
  
  
 class Point:
-	
+
 	def __init__(self, x, y, z):
 		self.x = float(x)
 		self.y = float(y)
 		self.z = float(z)
+
+	def __str__(self):
+		return (f'({self.x}, {self.y}, {self.z})')
+
 		
 	def get_x(self):
 		return self.x
@@ -28,39 +32,40 @@ class Point:
 		self.z = value
 		
 	def __add__(self, other):
-		return (
+		return Point(
 			self.x + other.x,
 			self.y + other.y,
 			self.z + other.z
 			)
 			
 	def __sub__(self, other):
-		return (
+		return Point(
 			self.x - other.x,
 			self.y - other.y,
 			self.z - other.z
 			)
 			
 	def __truediv__(self, other):
-		return (
+		return Point(
 			self.x / other.x,
 			self.y / other.y,
 			self.z / other.z
 			)
 			
 	def __mul__(self, other):
-		return (
+		return Point(
 			self.x * other.x,
 			self.y * other.y,
 			self.z * other.z
 			)
 			
 	def un(self):
-		return (
+		return Point(
 			- self.x,
 			- self.y,
 			- self.z
 			)
+
 
 a = Point(4, 5, 6)
 b = Point(1, 2, 3)
