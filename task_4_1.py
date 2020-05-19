@@ -65,6 +65,7 @@ class Student(Matriculant):
         self._course = course
         Person.list[-1].append(self._course)
 
+
 class Lecturer(Matriculant):
 
     def __init__(self, surname, birthday, faculty, position, experience):
