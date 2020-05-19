@@ -5,56 +5,57 @@
 
 
 class Stack:
-    stack = []
 
-    def __init__(self, name):
-        self.name = name
-        Stack.stack.append(self.name)
-        print(f'Object {self.name} added to the stack.\nThe stack is {Stack.stack}')
+    def __init__(self):
+        self.elements = []
 
-    def pop(self):
-        if self.name in Stack.stack:
-            for i in reversed(Stack.stack):
-                print(f'Object {Stack.stack.pop()} taken out from the stack.\nThe stack is {Stack.stack}')
-                if i == self.name:
-                    break
-        else:
-            print(f'Object {self.name} is out of the stack.\nThe stack is {Stack.stack}')
-
-
-a = Stack('a')
-b = Stack('b')
-c = Stack('c')
-
-b.pop()
-c.pop()
-
-
-class Line:
-    line = []
-
-    def __init__(self, name):
-        self.name = name
-        Line.line.append(self.name)
-        print(f'Object {self.name} added to the Line.\nThe Line is {Line.line}')
+    def push(self, element):
+        self.elements.append(element)
 
     def pop(self):
-        if self.name in Line.line:
-            for i in Line.line:
-                print(f'Object {Line.line.pop()} taken out from the Line.\nThe line is {Line.line}')
-                if i == self.name:
-                    break
-        else:
-            print(f'Object {self.name} is out of the Line.\nThe line is {Line.line}')
+        return self.elements.pop()
+
+    def size(self):
+        return len(self.elements)
 
 
-d = Line('a')
-e = Line('b')
-f = Line('c')
+print('Stack')
+a = Stack()
+a.push(1)
+a.push(2)
+a.push(3)
+a.push(4)
 
-e.pop()
-f.pop()
-d.pop()
+print(a.size())
+print(a.pop())
+print(a.size())
+print('*' * 25)
+
+class Queue:
+
+    def __init__(self):
+        self.elements = []
+
+    def queue(self, element):
+        self.elements.append(element)
+
+    def dequeue(self):
+        return self.elements.pop(0)
+
+    def size(self):
+        return len(self.elements)
+
+
+print('Queue')
+b = Queue()
+b.queue(1)
+b.queue(2)
+b.queue(3)
+b.queue(4)
+print(b.size())
+print(b.dequeue())
+print(b.size())
+print('*' * 25)
 
 
 class Complex:
@@ -92,6 +93,7 @@ class Complex:
         )
 
 
+print('Complex')
 j = Complex(2, 1)
 h = Complex(1, 2)
 
