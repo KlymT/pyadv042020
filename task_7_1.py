@@ -5,10 +5,10 @@
 import sqlite3
 
 
-class StudentsContext:
+class Context:
 
-    def __init__(self):
-        self.conn = sqlite3.connect('Students.db')
+    def __init__(self, db):
+        self.conn = sqlite3.connect(f'{db}')
         self.cursor = self.conn.cursor()
 
     def __enter__(self):
@@ -23,7 +23,7 @@ class StudentsContext:
         self.conn.close()
 
 
-with StudentsContext() as obj:
+with Context('Students.db') as obj:
     obj.exe("SELECT * FROM Students left join faculty on students.student_id = faculty.student_id "
             "Left join marks on students.student_id = marks.student_id")
 
